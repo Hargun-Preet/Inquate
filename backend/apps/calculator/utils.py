@@ -4,8 +4,13 @@ import json
 from PIL import Image
 from constants import GEMINI_API_KEY
 
-genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel(model_name="gemini-2.0-flash")
+try:
+    genai.configure(api_key=GEMINI_API_KEY)
+    model = genai.GenerativeModel(model_name="gemini-2.0-flash")
+except Exception as e:
+    print(f"Error configuring Generative AI: {e}")
+    model = None
+
 
 def analyse_image(img: Image, dict_of_vars: dict):
     try:
