@@ -19,6 +19,33 @@
 ## 🧠 How It Feels
 Imagine sketching a problem and having a friendly AI math tutor **read your drawing**, figure out what you mean, and return an answer before you can blink. That’s Inquate — math & physics solved as if by magic.
 
-
-
+## Project Structure
+```
+inquate/
+│
+├── backend/                # FastAPI backend
+│   ├── main.py
+│   ├── constants.py
+│   ├── schema.py
+│   ├── requirements.txt
+│   ├── .env
+│   └── apps/
+│       └── calculator/
+│           ├── route.py
+│           └── utils.py
+│
+├── frontend/               # React + Vite frontend
+│   ├── src/
+│   │   ├── components/
+│   │   ├── screens/
+│   │   ├── index.css
+│   │   └── ...
+│   ├── public/
+│   ├── .env.local
+│   ├── package.json
+│   ├── tailwind.config.js
+│   └── ...
+│
+└── README.md
+```
 
