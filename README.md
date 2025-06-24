@@ -19,7 +19,7 @@
 ## 🧠 How It Feels
 Imagine sketching a problem and having a friendly AI math tutor **read your drawing**, figure out what you mean, and return an answer before you can blink. That’s Inquate — math & physics solved as if by magic.
 
-## Project Structure
+## 📂 Project Structure
 ```
 inquate/
 │
@@ -48,13 +48,18 @@ inquate/
 │
 └── README.md
 ```
-## Tech Stack
+## 🔧 Tech Stack
 - Frontend: React, Vite, TypeScript, Tailwind CSS, Mantine, Clerk, MathJax, react-draggable
 - Backend: FastAPI, Python, Google Generative AI, Pillow, python-dotenv
 - Deployment: Railway - Backend, Vercel - Frontend
 
-## Getting Started
-# Backend Setup
+## 🎯 Getting Started
+- Clone the repository:
+   ```
+   git clone https://github.com/Hargun-Preet/Inquate.git
+   cd Inquate
+   ```
+# 🐣 Backend Setup
 1. Install Python dependencies
 ```
 cd backend
@@ -79,7 +84,7 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8900
 ```
 The backend will be available at http://localhost:8900.
 
-# Frontend Setup
+# 🎨 Frontend Setup
 1. Install Node dependencies
 ```
 cd frontend
@@ -126,13 +131,13 @@ The frontend will be available at http://localhost:5173 (or the port Vite choose
 | `VITE_CLERK_AFTER_SIGN_UP_URL`    | Redirect after sign-up         |
 | `VITE_CLERK_AFTER_SIGN_OUT_URL`   | Redirect after sign-out        |
 
-## Development Run
+## 🚀 Development Run
 - Backend:
 Run uvicorn main:app --reload --host 0.0.0.0 --port 8900 in backend
 - Frontend:
 Run npm run dev in frontend
 
-## Deployment on Railway
+## 🌐 Deployment on Railway
 Deploy both backend and frontend as separate services:
 
 1. Push your code to GitHub.
@@ -150,10 +155,10 @@ Deploy both backend and frontend as separate services:
 5. Each service will get its own Railway URL.
 6. (Optional) Add a custom domain in Railway dashboard.
 
-## License
+## 📜 License
 MIT License.
 See LICENSE for details.
 
 ---
-Happy hacking!
+Happy hacking! 🎉
 For questions or contributions, open an issue or PR.
