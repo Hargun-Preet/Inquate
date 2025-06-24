@@ -1,4 +1,5 @@
 import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
+import { useUser } from "@clerk/clerk-react";
 import { Expand, MonitorSmartphone, Palette, Pencil, ScanLineIcon, Sparkles, Zap } from "lucide-react";
 
 const features = [
@@ -71,11 +72,13 @@ const features = [
 ];
 
 export function Bento() {
+  const { isSignedIn } = useUser();
   return (
     <BentoGrid className="grid grid-cols-3 grid-rows-7 lg:grid-rows-[repeat(7,_minmax(0,_110px))] grid-rows-[repeat(7,_minmax(0,_300px))] gap-3 mt-24 px-64 mb-32">
-      {features.map((feature) => (
-        <BentoCard key={feature.name} {...feature} />
-      ))}
+      {features.map((feature) => {
+        const href = isSignedIn ? feature.href : "/sign-in";
+        return <BentoCard key={feature.name} {...feature} href={href} />;
+      })}
     </BentoGrid>
   );
 }

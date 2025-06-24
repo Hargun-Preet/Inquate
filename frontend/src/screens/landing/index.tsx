@@ -10,9 +10,11 @@ import { Bento } from "@/components/ui/BentoGrid";
 import Pricing from "@/components/ui/Pricing";
 import Testimonial from "@/components/ui/Testimonial";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "@clerk/clerk-react";
 
 export default function Landing() {
   const navigate = useNavigate();
+  const { isLoaded, isSignedIn } = useUser();
   return (
     <>
       <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden ">      
@@ -49,7 +51,8 @@ export default function Landing() {
             No typing. No limits. Just draw it, click solve, and let the math magic happen.
           </p>
           <div className="md:mt-8 mt-6 flex items-center justify-center gap-4">
-            <Button size="lg" className="pointer-events-auto rounded-full text-base" onClick={() => navigate("/sign-up")}>
+            <Button size="lg" className="pointer-events-auto rounded-full text-base" onClick={() => navigate(isSignedIn ? "/canvas" : "/sign-up")}
+              disabled={!isLoaded}>
               Get Started <ArrowUpRight className="!h-5 !w-5" />
             </Button>
             <Button

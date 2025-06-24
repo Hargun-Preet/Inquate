@@ -385,14 +385,15 @@ function Test() {
     const [latexPosition, setLatexPosition] = useState({ x: 0, y: 0 }); // Initial position for draggable LaTeX
     const [resetState, setResetState] = useState(false); // For triggering full reset
 
-    const { isSignedIn } = useUser();
+    const { isSignedIn, isLoaded  } = useUser();
     const navigate = useNavigate();
 
     useEffect(() => {
-      if (!isSignedIn) {
+      if (isLoaded && !isSignedIn) {
         navigate("/sign-in");
       }
-    }, [isSignedIn]);
+    }, [isLoaded, isSignedIn, navigate]);
+
     const nodeRef = React.useRef(null);
 
     // MathJax script loading and configuration
