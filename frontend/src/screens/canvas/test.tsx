@@ -757,7 +757,7 @@ function Test() {
       <DotBackground/>
       <a href="/">
         <img
-          src="/public/logo.png"
+          src="/logo.png"
           alt="Inquate Logo"
           className="fixed top-4 left-4 h-12 z-50"
         />
