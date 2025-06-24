@@ -48,4 +48,111 @@ inquate/
 │
 └── README.md
 ```
+## Tech Stack
+- Frontend: React, Vite, TypeScript, Tailwind CSS, Mantine, Clerk, MathJax, react-draggable
+- Backend: FastAPI, Python, Google Generative AI, Pillow, python-dotenv
+- Deployment: Railway - Backend, Vercel - Frontend
 
+## Getting Started
+# Backend Setup
+1. Install Python dependencies
+```
+cd backend
+python -m venv venv
+# Windows:
+venv\Scripts\activate
+# Linux/Mac:
+source venv/bin/activate
+
+pip install -r requirements.txt
+```
+2.Configure environment variables
+
+Create a .env file in backend:
+```
+GEMINI_API_KEY=your-google-gemini-api-key
+# Add other variables as needed
+```
+3. Run the backend server
+```
+uvicorn main:app --reload --host 0.0.0.0 --port 8900
+```
+The backend will be available at http://localhost:8900.
+
+# Frontend Setup
+1. Install Node dependencies
+```
+cd frontend
+npm install
+# or
+yarn
+```
+2. Configure environment variables
+
+Create a .env.local file in frontend:
+```
+VITE_API_URL=http://localhost:8900
+VITE_CLERK_PUBLISHABLE_KEY=your-clerk-publishable-key
+VITE_CLERK_SIGN_IN_URL=/sign-in
+VITE_CLERK_SIGN_UP_URL=/sign-up
+VITE_CLERK_AFTER_SIGN_IN_URL=/canvas
+VITE_CLERK_AFTER_SIGN_UP_URL=/canvas
+VITE_CLERK_AFTER_SIGN_OUT_URL=/
+```
+3. Run the frontend dev server
+```
+npm run dev
+# or
+yarn dev
+```
+The frontend will be available at http://localhost:5173 (or the port Vite chooses).
+
+## 🌐 Environment Variables
+
+## Backend (`.env`)
+| Variable         | Description             |
+|------------------|-------------------------|
+| `GEMINI_API_KEY` | Google Gemini API Key   |
+| `...`            | Add other backend secrets as needed |
+
+## Frontend (`.env.local`)
+| Variable                          | Description                    |
+|----------------------------------|--------------------------------|
+| `VITE_API_URL`                    | Backend API URL (e.g. `http://localhost:8900`) |
+| `VITE_CLERK_PUBLISHABLE_KEY`      | Clerk publishable key          |
+| `VITE_CLERK_SIGN_IN_URL`          | Clerk sign-in route            |
+| `VITE_CLERK_SIGN_UP_URL`          | Clerk sign-up route            |
+| `VITE_CLERK_AFTER_SIGN_IN_URL`    | Redirect after sign-in         |
+| `VITE_CLERK_AFTER_SIGN_UP_URL`    | Redirect after sign-up         |
+| `VITE_CLERK_AFTER_SIGN_OUT_URL`   | Redirect after sign-out        |
+
+## Development Run
+- Backend:
+Run uvicorn main:app --reload --host 0.0.0.0 --port 8900 in backend
+- Frontend:
+Run npm run dev in frontend
+
+## Deployment on Railway
+# Deploy both backend and frontend as separate services:
+
+1. Push your code to GitHub.
+2. Create a new Railway project.
+3. Add a service for the backend:
+- Set root directory to backend
+- Start command: uvicorn main:app --host 0.0.0.0 --port $PORT
+- Set environment variables (from .env)
+4. Add a service for the frontend:
+- Set root directory to frontend
+- Build command: npm run build
+- Start command: npm run preview -- --port $PORT
+- Set environment variables (from .env.local)
+- Set VITE_API_URL to your backend’s Railway URL
+5. Each service will get its own Railway URL.
+6. (Optional) Add a custom domain in Railway dashboard.
+
+## License
+MIT License.
+See LICENSE for details.
+
+Happy hacking!
+For questions or contributions, open an issue or PR.
