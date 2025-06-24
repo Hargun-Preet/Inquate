@@ -66,7 +66,7 @@ source venv/bin/activate
 
 pip install -r requirements.txt
 ```
-2.Configure environment variables
+2. Configure environment variables
 
 Create a .env file in backend:
 ```
@@ -109,13 +109,13 @@ The frontend will be available at http://localhost:5173 (or the port Vite choose
 
 ## 🌐 Environment Variables
 
-## Backend (`.env`)
+# Backend (`.env`)
 | Variable         | Description             |
 |------------------|-------------------------|
 | `GEMINI_API_KEY` | Google Gemini API Key   |
 | `...`            | Add other backend secrets as needed |
 
-## Frontend (`.env.local`)
+# Frontend (`.env.local`)
 | Variable                          | Description                    |
 |----------------------------------|--------------------------------|
 | `VITE_API_URL`                    | Backend API URL (e.g. `http://localhost:8900`) |
@@ -133,7 +133,7 @@ Run uvicorn main:app --reload --host 0.0.0.0 --port 8900 in backend
 Run npm run dev in frontend
 
 ## Deployment on Railway
-# Deploy both backend and frontend as separate services:
+Deploy both backend and frontend as separate services:
 
 1. Push your code to GitHub.
 2. Create a new Railway project.
@@ -154,5 +154,6 @@ Run npm run dev in frontend
 MIT License.
 See LICENSE for details.
 
+---
 Happy hacking!
 For questions or contributions, open an issue or PR.
