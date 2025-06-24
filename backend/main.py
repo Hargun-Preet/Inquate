@@ -3,8 +3,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from apps.calculator.route import router as calculator_router
-import os
-print("DEBUG: PORT=", os.environ.get("PORT"))
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
